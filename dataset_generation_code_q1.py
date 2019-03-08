@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import os
 
 img_row=28
 img_col=28
@@ -12,11 +13,13 @@ long =15
 width = thin
 color =blue
 
-tx=14
-ty=18
+
 
 
 #############################################
+
+
+os.mkdir("dataset")
 testimage = np.zeros((img_row,img_col,3), np.uint8)
 d=0
 for i in range(6,7):
@@ -26,6 +29,6 @@ for i in range(6,7):
 			rotationMatrix = cv2.getRotationMatrix2D((i,j),theta,1)
 			translationMatrix = np.float32([[1, 0, 100], [0, 1, 50]])
 			testimage = cv2.warpAffine(testimage,rotationMatrix,(img_row,img_col))
-			cv2.imwrite("./testimage/face-%d.jpg"%d,testimage)
+			cv2.imwrite("./dataset/face-%d.jpg"%d,testimage)
 			d=d+1
 			testimage = np.zeros((img_row,img_col,3), np.uint8)
