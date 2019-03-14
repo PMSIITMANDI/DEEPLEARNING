@@ -25,9 +25,9 @@ def my_accelaration(m,x,g):
                 for j in range(2):
                     sum[i][j]=sum[i][j]+(-1/r_dist)*g*m[i]*r[k][j]
     return sum
-m = np.load('/home/mahesh/PycharmProjects/hello/Deep Learning/Assignment1/masses.npy')
-x = np.load('/home/mahesh/PycharmProjects/hello/Deep Learning/Assignment1/positions.npy')
-u = np.load('/home/mahesh/PycharmProjects/hello/Deep Learning/Assignment1/velocities.npy')
+m = np.load('./dataset/masses.npy')
+x = np.load('./dataset/positions.npy')
+u = np.load('./dataset/velocities.npy')
 count=0
 threshold=1.0
 while threshold>=0.1:
