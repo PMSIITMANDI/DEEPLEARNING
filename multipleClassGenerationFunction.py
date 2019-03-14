@@ -61,7 +61,7 @@ def createLineForSpecifiedClass(length,width,theta,color):
     
         for i in range(0,28):
             for j in range(0,28):
-                testimage = createLine(testimage,i,j,length,width,"red") 
+                testimage = createLine(testimage,i,j,length,width,cs) 
                 testimage=Image.fromarray(testimage)
                 testimage=testimage.rotate(theta)
                 testimage=np.array(testimage)

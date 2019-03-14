@@ -18,7 +18,7 @@ os.mkdir("dataset")
     
 length=[15]
 width=[3]
-theta=[45]
+theta=[0,45]
 color =["red"]
 
 for l in length:
