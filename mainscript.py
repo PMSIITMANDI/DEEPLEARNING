@@ -16,10 +16,10 @@ except OSError as e:
 os.mkdir("dataset")
     
     
-length=[15]
-width=[3]
-theta=[0,45]
-color =["red"]
+length=[7,15]
+width=[1,3]
+theta=[0,15,30,45,60,75,90,105,120,135,150,165]
+color =["blue"]
 
 for l in length:
     for w in width:
