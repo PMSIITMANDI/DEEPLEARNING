@@ -26,9 +26,11 @@ def createLineForSpecifiedClass(length,width,theta,color):
     if (color=="blue"):
         c=1
         cs="blue"
+        color1 = (255,0,0)
     else:
         c=0
         cs="red"
+        color1 = red=(0,0,255)
     t=int(theta/15)
     
     
@@ -61,7 +63,8 @@ def createLineForSpecifiedClass(length,width,theta,color):
     
         for i in range(0,28):
             for j in range(0,28):
-                testimage = createLine(testimage,i,j,length,width,cs) 
+                #testimage = createLine(testimage,i,j,length,width,cs)
+                testimage = cv2.line(testimage,(j,i),(j+length,i),color1,width)
                 testimage=Image.fromarray(testimage)
                 testimage=testimage.rotate(theta)
                 testimage=np.array(testimage)
@@ -73,14 +76,15 @@ def createLineForSpecifiedClass(length,width,theta,color):
                     no_of_images=no_of_images+1
                     print ("Image will be created")
                     
-                    filename = str(l)+"_"+str(w)+"_"+str(t)+"_"+str(c)+"_"+"%s"%no_of_images+".jpg"
-                    filePath = "./"+mydir+"/"+classFolder+"/"+filename
-                    cv2.imwrite(filePath,testimage)
+                        filename = str(l)+"_"+str(w)+"_"+str(t)+"_"+str(c)+"_"+"%s"%no_of_images+".jpg"
+                        filePath = "./"+mydir+"/"+classFolder+"/"+filename
+                        cv2.imwrite(filePath,testimage)
                 else:
                     k=1
                     
+                    
                 testimage = np.zeros((28,28,3), np.uint8)
-    print("No of images created: %s"%no_of_images)
+        print("No of images created: %s"%no_of_images)
         
     return
     
