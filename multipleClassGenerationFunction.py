@@ -76,15 +76,15 @@ def createLineForSpecifiedClass(length,width,theta,color):
                     no_of_images=no_of_images+1
                     print ("Image will be created")
                     
-                        filename = str(l)+"_"+str(w)+"_"+str(t)+"_"+str(c)+"_"+"%s"%no_of_images+".jpg"
-                        filePath = "./"+mydir+"/"+classFolder+"/"+filename
-                        cv2.imwrite(filePath,testimage)
+                    filename = str(l)+"_"+str(w)+"_"+str(t)+"_"+str(c)+"_"+"%s"%no_of_images+".jpg"
+                    filePath = "./"+mydir+"/"+classFolder+"/"+filename
+                    cv2.imwrite(filePath,testimage)
                 else:
                     k=1
                     
                     
                 testimage = np.zeros((28,28,3), np.uint8)
-        print("No of images created: %s"%no_of_images)
+    print("No of images created: %s"%no_of_images)
         
     return
     
