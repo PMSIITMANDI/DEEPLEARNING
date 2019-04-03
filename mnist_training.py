@@ -15,6 +15,17 @@ currentDir = os.getcwd()
 path = currentDir + "/MNIST/*"
 no_of_epochs = 4
 
+
+try:
+    shutil.rmtree("mnist_weightFile")
+except OSError as e:
+    #print ("Error: %s - %s." % (e.filename, e.strerror))
+    k=1
+    
+    
+os.mkdir("mnist_weightFile")
+
+
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data(path)
 image_index = 4000 # You may select anything up to 60,000
 print(y_train[image_index]) # The label is 8
@@ -49,7 +60,7 @@ model.add(Dense(1024, activation=tf.nn.relu))
 model.add(Dense(10,activation=tf.nn.softmax))
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
-filepath = currentDir+"weightFile"+"/mnist-{epoch:02d}-{loss:.4f}.hdf5"
+filepath = currentDir+"/mnist_weightFile"+"/mnist-{epoch:02d}-{loss:.4f}.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 model.fit(x=x_train,y=y_train, epochs=no_of_epochs, batch_size=100, callbacks= callbacks_list)

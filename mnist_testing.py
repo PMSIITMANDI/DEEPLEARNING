@@ -13,9 +13,9 @@ currentDir = os.getcwd()
 path = currentDir + "/MNIST/*"
 
 
-weightFiles = os.listdir("./weightFile/")
+weightFiles = os.listdir("./mnist_weightFile/")
 weightFiles.sort()
-weightFilepath = currentDir+"/weightFile/"+weightFiles[3]
+weightFilepath = currentDir+"/mnist_weightFile/"+weightFiles[3]
 
 
 
